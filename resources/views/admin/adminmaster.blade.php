@@ -9,7 +9,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
+ 
+  
 
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -118,5 +119,9 @@
 <!-- ./wrapper -->
 
 <script src="{{ asset('js/app.js') }}" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
 </body>
 </html>

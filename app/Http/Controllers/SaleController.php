@@ -34,7 +34,9 @@ class SaleController extends Controller
       $Sales->emp_id = $request->emp_id;
       $Sales->stock_id = $request->stock_id;
       $Sales->todays_qty = $request->todays_qty;
-      $Sales->todays_qty = $request->todays_qty;
+      $Sales->price = $request->price;
+      $Sales->discount = $request->discount;
+      $Sales->netprice = $request->netprice;
     
       $course->save();
         
@@ -47,9 +49,24 @@ class SaleController extends Controller
 
     
 
-    public function index()
+    public function report()
     {
-      $depoes = Sale::orderBy('id', 'desc')->get();
-      return view('admin.pages.depolist', compact('depoes'));
+      $sales = Sale::orderBy('id', 'desc')->get();
+      
+      $products = Product::orderBy('id', 'desc')->get();
+      return view('admin.pages.sale.reporting', compact('sales','products'));
+    }
+
+    public function checksalereport(Request $request)
+    {
+      if ($request->date) {
+        $date = date('y-m-d',strtotime($request->date));
+        $sales = Sale::where('created_at',$date)->get();
+        return view('admin.pages.sale.checkreport', compact('sales','date'));
+        
+      } else {
+        # code...
+      }
+      
     }
 }

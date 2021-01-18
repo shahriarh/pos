@@ -38,7 +38,9 @@ Route::get('/stock/report', 'StockController@report')->name('stock.report');
 #sales
 Route::get('/addsale', 'SaleController@create')->name('addsale');
 
-Route::get('/depo/list', 'SaleController@index')->name('depo.list');
+Route::get('/sales/report', 'SaleController@report')->name('sales.report');
+
+Route::post('/checksalereport', 'SaleController@checksalereport')->name('sales.checksalereport');
 
 
 #accounts

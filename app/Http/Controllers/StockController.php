@@ -53,14 +53,24 @@ class StockController extends Controller
       $Stocks = Stock::orderBy('id', 'asc')->get();
       $Sales = Sale::orderBy('id', 'asc')->get();
       //$closing_stock = 
+
+      // $data = DB::table('stocks')
+      // ->select('sales.todays_qty','sales')
+      // ->join('sales','stock_id','sales.stock_id')
+      
+      // ->get();
+      
+      $data = Sale::where('created_at')->get();
+
       $todays_stock_sum = DB::table("stocks")->get()->sum("todays_stock");
       $broken_sum = DB::table("stocks")->get()->sum("broken");
       $sample_issue_sum = DB::table("stocks")->get()->sum("sample_issue");
       $todays_sales_sum = DB::table("stocks")->get()->sum("todays_sales");
       $depo_sale_qty_sum = DB::table("sales")->get()->sum("todays_qty");
-      $Sum_Closing_Stocks =$todays_stock_sum - $broken_sum -  $sample_issue_sum +  ($todays_sales_sum - $depo_sale_qty_sum) ;
 
-      return view('admin.pages.stock.reporting',compact('Stocks','Sales','Sum_Closing_Stocks'));
+      $Sum_Closing_Stocks =$todays_stock_sum - $broken_sum -  $sample_issue_sum - $depo_sale_qty_sum ;
+
+      return view('admin.pages.stock.reporting',compact('Stocks','Sales','data','Sum_Closing_Stocks','depo_sale_qty_sum'));
       
     }
 }

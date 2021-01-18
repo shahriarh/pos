@@ -193,7 +193,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('addsale') }}" class="nav-link">
+                <a href="{{ route('sales.report') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>sales reports</p>
                 </a>
@@ -218,15 +218,15 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                <a href="pages/layout/boxed.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Top Navigation + Sidebar</p>
+                  <p>Attendance</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/boxed.html" class="nav-link">
+                <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Boxed</p>
+                  <p>Top Navigation + Sidebar</p>
                 </a>
               </li>
             </ul>
